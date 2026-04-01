@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History</title>
+    <style>
+       body {
+            font-family: 'Georgia', monospace, sans-serif;
+            margin: 20px;
+        
+         background-color:antiquewhite;
+         border: 2px solid black; 
+    padding: 100px;          
+        }
+        p {
+            color: #333;
+                font-size: 12px;
+                margin-bottom: 10px;
+                align-items: center;
+                text-align: center;
+                border-width: 2px;
+                border-color: #333;
+                border-style: solid;
+                padding: 10px;
+                text-align: center;
+        }
+        h1 {
+            font-size: 12px;
+            color: #666;
+        }
+        a {
+            text-decoration: none;
+            color: #333;
+             font-size: 18px;
+        }
+        a :hover {
+                font-size: 12px;
+            text-decoration-line: underline;
+            text-decoration-style: dashed;
+            color: #333;
+        }
+  .rotating-badge {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+  }
+h2{ 
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #000;
+    text-align: center;
+}
+
+  .rotating-badge svg {
+    animation: spin 12s linear infinite;
+  }
+
+  .circle-text {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    fill: #1a1a1a;
+    text-transform: uppercase;
+  }
+
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  .card-01 {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 24px;
+    letter-spacing: 2px;
+    color: #000;
+    text-align: center;
+    border-width: 2px;
+    border: #000, solid;
+    padding: 10px;
+  }
+  .card-02 {
+  font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 24px;
+    letter-spacing: 2px;
+    color: #000;
+    text-align: center;
+    border-width: 2px;
+    border: #000, solid;
+    padding: 10px;
+    min-height: auto;
+}
+
+.scroll-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 40px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; 
+}
+
+.scroll-container img {
+  flex: 0 0 auto;         
+  width: 75%;   
+      height: auto;           
+  scroll-snap-align: start;
+  border-radius: 4px;
+}
+
+.scroll-container::-webkit-scrollbar {
+  display: none;
+}
+  .nav-top1 {
+    position: absolute;
+    top: 20px;
+    left: 65px;
+    display: flex;
+    gap: 8px;
+    padding: 0%;
+  }
+  .nav-top2 {
+    position: absolute;
+    top: 20px;
+    right: 65px;
+    display: flex;
+    gap: 5px;
+}
+.card-01 p, .card-02 p {
+  column-count: 2;
+  column-gap: 40px;
+  text-align: left;
+
+}
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 80px;
+    margin-bottom: 10px;
+}
+.logo-img {
+    width: 75px;
+    height: auto;
+    margin-top: 10px;
+}
+h5 {
+    font-size: 10px;
+    color: #817e7e;
+    text-align: left;
+    margin-top: 20px;
+    letter-spacing: 1px;
+    line-height: 1px;
+}
+.progress-track {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: rgba(80, 60, 40, 0.15);
+    z-index: 9999;
+}
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: #6b4c1e;
+    transition: width 0.1s ease;
+    position: relative;
+}
+.progress-fill::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #6b4c1e;
+}
+.progress-label {
+    position: fixed;
+    top: 8px;
+ right: 35px;
+     font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: #6b4c1e;
+    opacity: 0.7;
+    z-index: 9999;
+}
+body {
+  animation: fadeIn 0.6s ease;
+}
+.nav-bar {
+    position: absolute;
+    top: 20px;
+    left: 65px;
+    right: 65px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+body.dark {
+    background-color: #1a1410;
+    border-color: #5a4a35;
+    color: #d4c4a8;
+}
+
+body.dark p {
+    color: #d4c4a8;
+    border-color: #5a4a35;
+}
+
+body.dark a { color: #d4c4a8; }
+
+body.dark .circle-text { fill: #d4c4a8; }
+
+body.dark .progress-fill { background: #c4a882; }
+body.dark .progress-fill::after { background: #c4a882; }
+body.dark .progress-label { color: #c4a882; }
+
+body.dark hr { border-color: #5a4a35; }
+body.dark h2, body.dark h4, body.dark h5, body.dark h6 { color: #d4c4a8; }
+
+.dark-toggle {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 36px;
+    height: 36px;
+    border: 1px solid #333;
+    background: antiquewhite;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: background 0.3s, border-color 0.3s;
+}
+
+body.dark .dark-toggle {
+    background: #1a1410;
+    border-color: #5a4a35;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+    </style>
+</head>
+<body>
+<div class="nav-bar">
+    <a href="index.html"><p>Back to the beginning</p></a>
+    <a href="history.html"><p>History of the Practice</p></a>
+    <a href="routes.html"><p>Trade Routes</p></a>
+    <a href="recipe.html"><p>Recipes</p></a>
+    <a href="about.html"><p>About this site</p></a>
+</div>
+</div>
+     <br>
+    <br>
+    <br>
+    <div class="progress-track">
+    <div class="progress-fill" id="progressFill"></div>
+</div>
+<span class="progress-label" id="progressLabel">0%</span>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="rotating-badge">
+  <svg viewBox="0 0 200 200" width="160" height="160">
+    <defs>
+      <path id="circle-path" d="M 100,100 m -75,0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0"/>
+    </defs>
+    <text class="circle-text">
+      <textPath href="#circle-path" startOffset="0%">
+        · APOTHECARY · APOTHECARY · APOTHECARY ·
+      </textPath>
+    </text>
+  </svg>
+</div>
+<br>
+   <br>
+    <br>
+    <div class="card-01">
+  <img src="WitchHut_.png" alt="Avatar" style="width:100%">
+  <div class="container">
+    <h4><b>The Foundation</b></h4>
+    <p>Apothecaries trace their roots to the ancient world, when healers prepared remedies from plants, minerals, and animal products. In early societies—Egypt, Greece, Rome—these proto-pharmacists were respected for their deep knowledge of botany and medicine. By the Middle Ages, apothecaries became distinct from physicians and barber-surgeons, opening shops in bustling towns and cities across Europe. Their counters overflowed with jars of herbs, spices, and mysterious powders. They crafted tinctures, poultices, and elixirs, often by hand, guided by tradition, observation, and a touch of alchemy. The first official apothecary guilds emerged in the 13th and 14th centuries, setting standards for training and practice. Over time, apothecaries evolved into the pharmacists we know today, but their foundation remains the same: a careful blending of science and art, grounded in the belief that nature holds the keys to healing. Their legacy still shapes modern medicine.</p>
+</div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <hr>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="card-01">
+  <img src="17thGApothecary.jpg" alt="Avatar" style="width:100%">
+  <div class="container">
+    <h4><b>Early Expressions</b></h4>
+    <p>The first physical apothecaries were much more than simple shops—they were the heart of their communities. Emerging in medieval Europe, early apothecaries often occupied small, dimly lit storefronts crowded with shelves of exotic ingredients. Mortars and pestles sat ready for grinding roots and seeds. The apothecary’s counter was a place where townspeople gathered, seeking remedies and advice for everything from fevers to heartbreak. These spaces blended commerce, science, and a bit of theater; the apothecary was equal parts merchant, chemist, and confidante. Records from 13th-century London and Paris reveal how apothecaries became trusted public figures, licensed by city authorities to prepare and sell medicines. Their shops were early laboratories, where experimentation met tradition. The atmosphere was fragrant with dried herbs and spices, and the promise of healing drew people from every walk of life. These first establishments laid the groundwork for the pharmacy as we know it today.</p>
+  </div>
+</div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <hr>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="card-01">
+  <img src="shelf_Far.png" alt="Avatar" style="width:100%">
+  <div class="container">
+    <h4><b>Community Spaces</b></h4>
+    <p>From the 1400s to the 1940s, apothecaries evolved into vital community spaces—hubs where science, commerce, and daily life intersected. In Renaissance Europe, apothecary shops doubled as gathering spots, where locals exchanged news, debated health fads, and sought counsel. By the 18th and 19th centuries, these shops often featured reading corners, bulletin boards, and even informal clinics. The apothecary became the neighborhood expert, trusted for advice on everything from children’s coughs to family remedies. With the rise of industrial medicine in the late 19th and early 20th centuries, these community spaces adapted, stocking mass-produced patent medicines alongside traditional herbs. Yet the personal touch endured—people still came for conversation, comfort, and a familiar face. Even as the pharmacy profession modernized in the 1940s, the apothecary’s role as a welcoming, communal sanctuary remained a defining legacy, shaping the way we understand healthcare today.</p>
+  </div>
+</div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+<hr>   
+ <br>
+    <br>
+    <br>
+    <br>
+    <div class="card-01">
+  <img src="CVS(bw).png" alt="Avatar" style="width:100%">
+  <div class="container">
+    <h4><b>The Fall of the Apothecary</b></h4>
+    <p>The fall of traditional apothecaries began in the mid-20th century, as chain drugstores like CVS started to reshape the landscape of American pharmacy. With the rise of standardized, mass-produced medications and the spread of suburban shopping centers, the neighborhood apothecary gave way to larger, corporate operations. CVS and its competitors promised convenience, longer hours, and a wider range of products—from prescriptions to toiletries to snacks—all under one roof. The pharmacist’s role shifted from crafting remedies to dispensing prepackaged drugs, and personal relationships with customers often faded into quick, transactional exchanges. The ornate jars and herbal aromas of the old apothecary were replaced by fluorescent lights and endless aisles. While this transformation brought efficiency and accessibility to millions, it marked the end of an era—a move away from the intimate, community-centered spaces that defined healthcare for centuries. The apothecary’s spirit, though, still lingers in the desire for personalized care.</p>
+  </div>
+</div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <hr>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="card-02">
+  <div class="scroll-container">
+    <img src="SMN.png" alt="Avatar">
+    <img src="Kiehls.png" alt="Avatar">
+    <img src="ColdSpringsA.png" alt="Avatar">
+  </div>
+  <div class="container">
+    <h4><b>Where to see the practice today</b></h4>
+    <p>You can still catch glimpses of the classic apothecary in a handful of modern spaces that blend history with contemporary flair. Brands like Kiehl’s—whose flagship storefront in New York pays homage to its 19th-century roots—keep the apothecary spirit alive, with polished glass jars, knowledgeable staff, and a focus on personalized care. Across the world, Santa Maria Novella shops echo the centuries-old traditions of Florentine apothecaries, offering fragrant soaps, herbal remedies, and artisanal perfumes in stunning, museum-like settings. In the Hudson Valley, Cold Spring Apothecary bridges old and new, with a focus on botanically-based wellness and a welcoming, community-oriented atmosphere. These spaces, with their careful attention to detail and sense of hospitality, offer a nostalgic nod to the days when the apothecary was part healer, part confidante, and always a cornerstone of the neighborhood. They remind us that the art of personalized care never truly disappears—it just finds new ways to endure.</p>
+  </div>
+</div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <hr>
+<div class="footer">
+    <div>
+        <h5>· APOTHECARY ·</h5>
+        <h5>All Rights Reserved</h5>
+        <h5>William Anderson · 2026</h5>
+    </div>
+    <img class="logo-img" src="LogoImg.png" alt="Apothecary Logo">
+</div>
+<button class="dark-toggle" id="darkToggle" title="Toggle dark mode">☽</button>
+
+<script>
+    window.addEventListener('scroll', function () {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const pct = Math.round((scrollTop / docHeight) * 100);
+        document.getElementById('progressFill').style.width = pct + '%';
+        document.getElementById('progressLabel').textContent = pct + '%';
+    });
+</script>
+<script>
+  document.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+
+  
+      if (!href || href.startsWith('#') || href.startsWith('http')) return;
+
+      e.preventDefault();
+      document.body.style.transition = 'opacity 0.4s ease';
+      document.body.style.opacity = '0';
+
+      setTimeout(() => {
+        window.location.href = href;
+      }, 400);
+    });
+  });
+
+const toggle = document.getElementById('darkToggle');
+if (localStorage.getItem('darkMode') === 'on') {
+    document.body.classList.add('dark');
+    toggle.textContent = '☀';
+}
+toggle.addEventListener('click', function () {
+    document.body.classList.toggle('dark');
+    const isDark = document.body.classList.contains('dark');
+    localStorage.setItem('darkMode', isDark ? 'on' : 'off');
+    this.textContent = isDark ? '☀' : '☽';
+});
+</script>
+
+</body>
+</html>

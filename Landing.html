@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entry_Page</title>
+    <style>
+        body {
+            font-family: 'Georgia', monospace, sans-serif;
+            margin: 20px;
+             background-color:antiquewhite;
+             border: 2px solid black; 
+            padding: 50px; 
+        }
+        table, th, td {
+            border: 1px solid black;
+            border-width: 2px;
+            border-collapse: collapse;
+        }
+        p {
+            color: #333;
+                font-size: 12px;
+                margin-bottom: 4px;
+                align-items: center;
+                text-align: center;
+                border-width: 2px;
+                border-color: #333;
+                border-style: solid;
+                padding: 4px;
+        }
+        a {
+            text-decoration: none;
+            color: #333;
+             font-size: 12px;
+             position: relative;
+             top: 5px;
+             left: 5px;
+        }
+        a :hover {
+                font-size: 12px;
+            text-decoration-line: underline;
+            text-decoration-style: dashed;
+            color: #333;
+        }
+        img:not(.logo-img) {
+    display: block;
+    margin: 20px auto;
+    width: 200px;
+    height: auto;
+}
+          .rotating-badge {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+  }
+h2{ 
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #000;
+    text-align: center;
+}
+
+  .rotating-badge svg {
+    animation: spin 12s linear infinite;
+  }
+
+  .circle-text {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    fill: #1a1a1a;
+    text-transform: uppercase;
+  }
+
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  .herb-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    
+}
+
+.herb-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    border: .75px solid black;
+    border: 1px solid black;
+    border-collapse: collapse;
+    gap: 10px;
+    padding: 20;
+}
+.cell {
+    border: 1px solid black;
+    padding: 20px;
+    text-align: center;
+        display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; 
+   
+}
+.herb-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    margin-top: auto; 
+}
+h4 {
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 200;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+
+.modal-card {
+    background: antiquewhite;
+    border: 2px solid black;
+    padding: 30px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    font-family: 'Georgia', serif;
+}
+
+.modal-card img {
+    width: 150px;
+    margin: 10px auto;
+}
+
+.modal-card h3 {
+    font-style: italic;
+    font-size: 16px;
+    margin: 8px 0 4px;
+}
+
+.modal-card .latin {
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: #555;
+    margin-bottom: 12px;
+}
+
+.modal-card p {
+    font-size: 12px;
+    text-align: left;
+    border: none;
+    color: #333;
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px; right: 14px;
+    font-size: 18px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-family: 'Georgia', serif;
+}
+
+.herb-grid .cell {
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.herb-grid .cell:hover {
+    background-color: #e8d8c0;
+}
+.nav-bar {
+    position: absolute;
+    top: 20px;
+    left: 65px;
+    right: 65px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+h5 {
+    font-size: 10px;
+    color: #817e7e;
+    text-align: left;
+    margin-top: 20px;
+    letter-spacing: 1px;
+    line-height: 1px;
+}
+h6 {
+    font-size: 10px;
+    color: #817e7e;
+    text-align: center;
+    margin-top: 20px;
+    letter-spacing: 1px;
+    line-height: 1px;
+}
+h7{
+    font-size: 18px;
+    color: #333;
+    text-align: center;
+    margin-top: 20px;
+    letter-spacing: 1px;
+}
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.logo-img {
+    width: 75px;
+    height: auto;
+}
+.equationbox{
+    width: 150px;
+    height: 150px;
+    border: 2px dashed #817e7e;
+    background-color: #f9f9f9;
+}
+.equation-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.glass-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 16px;
+  padding: 20px 0;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.glass-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.glass-card {
+  flex: 0 0 auto;
+  width: 200px;
+  height: 260px;
+  border: 1px solid #333;
+  padding: 16px;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 4px;
+  cursor: default;
+  transition: background-color 0.2s;
+}
+.glass-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: contain;
+  margin-bottom: auto;
+}
+.glass-card:hover {
+  background-color: #e8d8c0;
+}
+
+.glass-card .glass-name {
+  font-family: 'Georgia', serif;
+  font-size: 14px;
+  font-style: italic;
+  color: #333;
+  text-align: left;
+}
+
+.glass-card .glass-latin {
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: #888;
+  text-align: left;
+}
+.progress-track {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: rgba(80, 60, 40, 0.15);
+    z-index: 9999;
+}
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: #6b4c1e;
+    transition: width 0.1s ease;
+    position: relative;
+}
+.progress-fill::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #6b4c1e;
+}
+.progress-label {
+    position: fixed;
+    top: 8px;
+    right: 35px;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: #6b4c1e;
+    opacity: 0.7;
+    z-index: 9999;
+}
+body {
+  animation: fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+  justify-content: center;
+
+}
+
+.filter-btn {
+  font-family: 'Georgia', serif;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #555;
+  background: none;
+  border: 1px solid #aaa;
+  padding: 4px 12px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.filter-btn:hover {
+  background-color: #e8d8c0;
+}
+
+.filter-btn.active {
+  background-color: #333;
+  color: antiquewhite;
+  border-color: #333;
+}
+
+body.dark {
+    background-color: #1a1410;
+    border-color: #5a4a35;
+    color: #d4c4a8;
+}
+
+body.dark p {
+    color: #d4c4a8;
+    border-color: #5a4a35;
+}
+
+body.dark a { color: #d4c4a8; }
+
+body.dark .circle-text { fill: #d4c4a8; }
+
+body.dark .progress-fill { background: #c4a882; }
+body.dark .progress-fill::after { background: #c4a882; }
+body.dark .progress-label { color: #c4a882; }
+
+body.dark hr { border-color: #5a4a35; }
+body.dark h2, body.dark h4, body.dark h5, body.dark h6 { color: #d4c4a8; }
+
+
+.dark-toggle {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 36px;
+    height: 36px;
+    border: 1px solid #333;
+    background: antiquewhite;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: background 0.3s, border-color 0.3s;
+}
+
+body.dark .dark-toggle {
+    background: #1a1410;
+    border-color: #5a4a35;
+}
+
+.herb-pill {
+  font-family:'Georgia',serif; font-style:italic; font-size:11px;
+  border:1px solid #aaa; padding:5px 12px; cursor:grab;
+  user-select:none; color:#333; background:antiquewhite;
+  transition:background 0.2s;
+}
+.herb-pill:hover { background:#e8d8c0; }
+.herb-pill-grid { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin:20px auto 0; max-width:700px; }
+.compound-card  { border:1px solid #333; padding:20px 28px; max-width:480px; margin:0 auto; font-family:'Georgia',serif; }
+.compound-stamp { display:block; font-size:9px; letter-spacing:2px; text-transform:uppercase; color:#aaa; margin-bottom:6px; }
+.compound-name  { font-size:18px; font-weight:bold; color:#1a1a1a; margin-bottom:4px; }
+.compound-latin { font-style:italic; font-size:11px; color:#888; margin-bottom:4px; }
+.compound-info  { font-size:12px; color:#444; line-height:1.8; }
+.clear-btn      { font-family:'Georgia',serif; font-size:10px; letter-spacing:1px; text-transform:uppercase; color:#555; background:none; border:1px solid #aaa; padding:4px 16px; cursor:pointer; }
+.clear-btn:hover{ background:#e8d8c0; }
+.disc-entry     { font-family:'Georgia',serif; font-size:11px; padding:5px 0; border-bottom:1px dashed #ccc; display:flex; gap:12px; }
+.disc-entry:last-child { border-bottom:none; }
+</style>
+</head>
+<body>
+    <div class="progress-track">
+    <div class="progress-fill" id="progressFill"></div>
+</div>
+<div class="progress-track">
+    <div class="progress-fill" id="progressFill"></div>
+</div>
+<span class="progress-label" id="progressLabel">0%</span>
+<div class="nav-bar">
+    <a href="index.html"><p>Back to the beginning</p></a>
+    <a href="history.html"><p>History of the Practice</p></a>
+    <a href="routes.html"><p>Trade Routes</p></a>
+    <a href="recipe.html"><p>Recipes</p></a>
+    <a href="about.html"><p>About this site</p></a>
+</div>
+     <br>
+    <br>
+    <br>
+    
+    <div class="rotating-badge">
+  <svg viewBox="0 0 200 200" width="160" height="160">
+    <defs>
+      <path id="circle-path" d="M 100,100 m -75,0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0"/>
+    </defs>
+    <text class="circle-text">
+      <textPath href="#circle-path" startOffset="0%">
+       · APOTHECARY · APOTHECARY · APOTHECARY · 
+      </textPath>
+    </text>
+  </svg>
+</div>
+ <br>
+ <div class="modal-overlay" id="herbModal">
+    <div class="modal-card">
+        <button class="modal-close" onclick="closeModal()">✕</button>
+        <img id="modal-img" src="" alt="">
+        <h3 id="modal-name"></h3>
+        <p class="latin" id="modal-latin"></p>
+        <p id="modal-info"></p>
+    </div>
+</div>
+    <br>
+    <br>
+    <br>
+    <br> <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+<h4>· MATERIA MEDICA ·</h4>
+<br>
+<br>
+
+<div class="filter-bar">
+  <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="sleep">Sleep</button>
+  <button class="filter-btn" data-filter="digestion">Digestion</button>
+  <button class="filter-btn" data-filter="immunity">Immunity</button>
+  <button class="filter-btn" data-filter="skin">Skin</button>
+  <button class="filter-btn" data-filter="pain">Pain</button>
+  <button class="filter-btn" data-filter="anxiety">Anxiety</button>
+  <button class="filter-btn" data-filter="wounds">Wounds</button>
+  <button class="filter-btn" data-filter="inflammation">Inflammation</button>
+</div>
+
+<div class="herb-grid">
+    <div class="cell" data-tags="sleep anxiety skin" onclick="openModal('Lavender','Lavandula angustifolia','Anxiety · Sleep · Skin','Calming and antiseptic. Used for anxiety, insomnia, headaches, and minor wounds. Can be brewed as a tea, applied as an oil, or used in aromatherapy.')">
+        <span class="herb-icon"><img src="Lavender.png" alt="Lavender illustration"></span>
+        <span class="herb-name">Lavender</span>
+        <span class="herb-latin">Lavandula angustifolia</span>
+    </div>
+    <div class="cell" data-tags="digestion sleep skin" onclick="openModal('Chamomile','Matricaria chamomilla','Digestion · Sleep · Skin','Anti-inflammatory and soothing. Used for digestive upset, insomnia, and skin irritation. Commonly brewed as a tea or applied in creams.')">
+        <span class="herb-icon"><img src="Chamomile.png" alt="Chamomile illustration"></span>
+        <span class="herb-name">Chamomile</span>
+        <span class="herb-latin">Matricaria chamomilla</span>
+    </div>
+    <div class="cell" data-tags="immunity colds" onclick="openModal('Echinacea','Echinacea purpurea','Immunity · Colds · Infection','A powerful immune stimulant. Widely used to prevent and shorten colds and upper respiratory infections. Taken as tinctures, teas, or capsules.')">
+        <span class="herb-icon"><img src="Echinacea .png" alt="Echinacea illustration"></span>
+        <span class="herb-name">Echinacea</span>
+        <span class="herb-latin">Echinacea purpurea</span>
+    </div>
+    <div class="cell" data-tags="headaches nausea digestion" onclick="openModal('Peppermint','Mentha × piperita','Headaches · Nausea · Digestion','Cooling and antispasmodic. Used for headaches, nausea, IBS, and congestion.')">
+        <span class="herb-icon"><img src="Mint.png" alt="Peppermint illustration"> </span>
+        <span class="herb-name">Peppermint</span>
+        <span class="herb-latin">Mentha × piperita</span>
+    </div>
+    <div class="cell" data-tags="mood pain wounds" onclick="openModal('St. John\'s Wort','Hypericum perforatum','Mood · Nerve Pain · Wounds','Mood-lifting and nerve-soothing. Traditionally used for mild depression, nerve pain, and wound healing.')"
+        <span class="herb-icon"><img src="SJW.png" alt="St. John's Wort illustration"></span>
+        <span class="herb-name">St. John's Wort</span>
+        <span class="herb-latin">Hypericum perforatum</span>
+    </div>
+    <div class="cell" data-tags="wounds skin burns" onclick="openModal('Calendula','Calendula officinalis','Wounds · Burns · Eczema','Antiseptic and anti-inflammatory. A staple in salves, oils, and tinctures for healing wounds, burns, and skin conditions.')"
+        <span class="herb-icon"><img src="Marigold.png" alt="Calendula illustration"></span>
+        <span class="herb-name">Calendula</span>
+        <span class="herb-latin">Calendula officinalis</span>
+    </div>
+    <div class="cell" data-tags="immunity antiviral" onclick="openModal('Elderberry','Sambucus nigra','Antiviral · Flu · Immunity','A potent antiviral berry. Used in syrups and tinctures for flu, colds, and immune support.')"
+        <span class="herb-icon"><img src="Elderberry.png" alt="Elderberry illustration"></span>
+        <span class="herb-name">Elderberry</span>
+        <span class="herb-latin">Sambucus nigra</span>
+    </div>
+    <div class="cell" data-tags="circulation memory pain" onclick="openModal('Rosemary','Salvia rosmarinus','Circulation · Memory · Pain','Stimulating and antioxidant-rich. Used for circulation, memory, digestion, and muscle pain.')"
+        <span class="herb-icon"><img src="Rosemary.png" alt="Rosemary illustration"></span>
+        <span class="herb-name">Rosemary</span>
+        <span class="herb-latin">Salvia rosmarinus</span>
+    </div>
+    <div class="cell" data-tags="nausea inflammation digestion" onclick="openModal('Ginger','Zingiber officinale','Nausea · Inflammation · Digestion','Warming and anti-nausea. Used for digestive complaints, motion sickness, inflammation, and poor circulation.')"
+        <span class="herb-icon"><img src="Ginger.png" alt="Ginger illustration"></span>
+        <span class="herb-name">Ginger</span>
+        <span class="herb-latin">Zingiber officinale</span>
+    </div>
+    <div class="cell" data-tags="inflammation joints liver" onclick="openModal('Turmeric','Curcuma longa','Inflammation · Joints · Liver','A potent anti-inflammatory root. Used for joint pain, digestive health, and liver support.')"
+        <span class="herb-icon"><img src="Tu.png" alt="Turmeric illustration"></span>
+        <span class="herb-name">Turmeric</span>
+        <span class="herb-latin">Curcuma longa</span>
+    </div>
+    <div class="cell" data-tags="anxiety sleep skin" onclick="openModal('Lemon Balm','Melissa officinalis','Anxiety · Cold Sores · Sleep','Calming and antiviral. Used for anxiety, cold sores, sleep trouble, and digestive upset.')"
+        <span class="herb-icon"><img src="Lemon Balm.png" alt="Lemon Balm illustration"></span>
+        <span class="herb-name">Lemon Balm</span>
+        <span class="herb-latin">Melissa officinalis</span>
+    </div>
+    <div class="cell" data-tags="wounds fever digestion" onclick="openModal('Yarrow','Achillea millefolium','Wounds · Fever · Digestion','Named for Achilles. Stops bleeding, reduces fevers, and supports digestion.')"
+        <span class="herb-icon"><img src="Yarrow.png" alt="Yarrow illustration"></span>
+        <span class="herb-name">Yarrow</span>
+        <span class="herb-latin">Achillea millefolium</span>
+    </div>
+    <div class="cell" data-tags="liver detox" onclick="openModal('Milk Thistle','Silybum marianum','Liver · Detox · Regeneration','The premier liver herb. Protects and regenerates liver cells after illness or toxin exposure.')"
+        <span class="herb-icon"><img src="Milk Thisle.png" alt="Milk Thistle illustration"></span>
+        <span class="herb-name">Milk Thistle</span>
+        <span class="herb-latin">Silybum marianum</span>
+    </div>
+    <div class="cell" data-tags="digestion skin throat" onclick="openModal('Marshmallow Root','Althaea officinalis','Throat · Gut · Urinary Tract','A demulcent herb that coats and soothes irritated mucous membranes.')"
+        <span class="herb-icon"><img src="Marshmello.png" alt="Marshmallow Root illustration"></span>
+        <span class="herb-name">Marshmallow Root</span>
+        <span class="herb-latin">Althaea officinalis</span>
+    </div>
+</div>
+
+<div class="modal-overlay" id="herbModal">
+    <div class="modal-card">
+        <button class="modal-close" onclick="closeModal()">✕</button>
+        <span class="modal-icon" id="modal-icon"></span>
+        <h3 id="modal-name"></h3>
+        <span class="modal-latin" id="modal-latin"></span>
+        <hr class="modal-divider">
+        <p class="modal-uses" id="modal-uses"></p>
+        <p class="modal-info" id="modal-info"></p>
+    </div>
+</div>
+
+<script>
+    function openModal(name, latin, uses, info) {
+    document.getElementById('modal-name').textContent = name;
+    document.getElementById('modal-latin').textContent = latin;
+    document.getElementById('modal-uses').textContent = uses;
+    document.getElementById('modal-info').textContent = info;
+    document.getElementById('herbModal').classList.add('active');
+}
+    function closeModal() {
+        document.getElementById('herbModal').classList.remove('active');
+    }
+
+    document.getElementById('herbModal').addEventListener('click', function(e) {
+        if (e.target === this) closeModal();
+    });
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeModal();
+    });
+</script>
+ <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h4>· VASA VITREA ET INSTRUMENTA ·</h4>
+<br>
+
+<div class="glass-scroll">
+  <div class="glass-card">
+    <img src="Mortar.png"
+    <span class="glass-name">Mortar & Pestle</span>
+    <span class="glass-latin">Mortarium</span>
+  </div>
+  <div class="glass-card">
+    <img src="Alembic.png" alt="Glass Alembic illustration">
+    <span class="glass-name">Glass Alembic</span>
+    <span class="glass-latin">Alembicus vitreus</span>
+  </div>
+  <div class="glass-card">
+    <img src="Tincture.png" alt="Tincture Bottle illustration">
+    <span class="glass-name">Tincture Bottle</span>
+    <span class="glass-latin">Ampulla tincturarum</span>
+  </div>
+  <div class="glass-card">
+    <img src="Apothecary_jar.png"
+    <span class="glass-name">Apothecary Jar</span>
+    <span class="glass-latin">Vas apothecarii</span>
+  </div>
+  <div class="glass-card">
+    <img src="Distillation.png" alt="Distillation Flask illustration">
+    <span class="glass-name">Distillation Flask</span>
+    <span class="glass-latin">Cucurbita destillationis</span>
+  </div>
+  <div class="glass-card">
+    <img src="Scale.png" alt="Measuring Scales illustration">
+    <span class="glass-name">Measuring Scales</span>
+    <span class="glass-latin">Libra ponderum</span>
+  </div>
+  <div class="glass-card">
+    <img src="Funnel.png" alt="Funnel illustration">
+    <span class="glass-name">Funnel</span>
+    <span class="glass-latin">Infundibulum</span>
+  </div>
+  <div class="glass-card">
+    <img src="Pill.png" alt="Pill Mold illustration">
+    <span class="glass-name">Pill Mold</span>
+    <span class="glass-latin">Forma pilularum</span>
+  </div>
+</div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h2>· The mixing table ·</h2>
+    <h4>Compound Workbench</h4>
+    <h6>drag two herbs into the boxes to discover their compound</h6>
+    <br>
+
+<div class="equation-row">
+  <div id="slot-a" style="width:150px;height:120px;border:2px dashed #aaa;display:flex;align-items:center;justify-content:center;font-family:'Georgia',serif;font-style:italic;font-size:11px;color:#aaa;">Herb I</div>
+  <span style="font-family:'Georgia',serif;font-size:22px;color:#555;">+</span>
+  <div id="slot-b" style="width:150px;height:120px;border:2px dashed #aaa;display:flex;align-items:center;justify-content:center;font-family:'Georgia',serif;font-style:italic;font-size:11px;color:#aaa;">Herb II</div>
+  <span style="font-family:'Georgia',serif;font-size:22px;color:#555;">=</span>
+  <div id="slot-r" style="width:150px;height:120px;border:2px dashed #ccc;display:flex;align-items:center;justify-content:center;font-family:'Georgia',serif;font-style:italic;font-size:11px;color:#aaa;">Compound</div>
+</div>
+
+<div class="herb-pill-grid">
+  <span class="herb-pill" draggable="true">Lavender</span>
+  <span class="herb-pill" draggable="true">Chamomile</span>
+  <span class="herb-pill" draggable="true">Echinacea</span>
+  <span class="herb-pill" draggable="true">Peppermint</span>
+  <span class="herb-pill" draggable="true">St. John's Wort</span>
+  <span class="herb-pill" draggable="true">Calendula</span>
+  <span class="herb-pill" draggable="true">Elderberry</span>
+  <span class="herb-pill" draggable="true">Rosemary</span>
+  <span class="herb-pill" draggable="true">Ginger</span>
+  <span class="herb-pill" draggable="true">Turmeric</span>
+  <span class="herb-pill" draggable="true">Lemon Balm</span>
+  <span class="herb-pill" draggable="true">Yarrow</span>
+  <span class="herb-pill" draggable="true">Milk Thistle</span>
+  <span class="herb-pill" draggable="true">Marshmallow Root</span>
+</div>
+
+<div id="compound-result" style="display:none;margin-top:24px;">
+  <div class="compound-card">
+    <span class="compound-stamp">Discovered Compound</span>
+    <div class="compound-name"  id="compound-name"></div>
+    <div class="compound-latin" id="compound-latin"></div>
+    <hr style="border:none;border-top:1px solid #ddd;margin:10px 0;">
+    <div class="compound-info"  id="compound-info"></div>
+  </div>
+</div>
+
+<div style="text-align:center;margin-top:16px;">
+  <button class="clear-btn" onclick="clearSlots()">Clear</button>
+</div>
+
+<br><br>
+<h6>· Discovered Compounds ·</h6>
+<hr>
+<div id="disc-list" style="margin-top:8px;"></div>
+<br>
+<hr>
+<div class="footer">
+    <div>
+        <h5>· APOTHECARY ·</h5>
+        <h5>All Rights Reserved</h5>
+        <h5>William Anderson · 2026</h5>
+    </div>
+    <img class="logo-img" src="LogoImg.png" alt="Apothecary Logo">
+</div>
+<button class="dark-toggle" id="darkToggle" title="Toggle dark mode">☽</button>
+<script>
+    window.addEventListener('scroll', function () {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const pct = Math.round((scrollTop / docHeight) * 100);
+        document.getElementById('progressFill').style.width = pct + '%';
+        document.getElementById('progressLabel').textContent = pct + '%';
+    });
+</script>
+<script>
+  document.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+
+      if (!href || href.startsWith('#') || href.startsWith('http')) return;
+
+      e.preventDefault();
+      document.body.style.transition = 'opacity 0.4s ease';
+      document.body.style.opacity = '0';
+
+      setTimeout(() => {
+        window.location.href = href;
+      }, 400);
+    });
+  });
+</script>
+<script>
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', function () {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      const filter = this.getAttribute('data-filter');
+      document.querySelectorAll('.cell').forEach(cell => {
+        const tags = cell.getAttribute('data-tags') || '';
+        cell.style.display = (filter === 'all' || tags.includes(filter)) ? 'flex' : 'none';
+      });
+    });
+  });
+const toggle = document.getElementById('darkToggle');
+if (localStorage.getItem('darkMode') === 'on') {
+    document.body.classList.add('dark');
+    toggle.textContent = '☀';
+}
+toggle.addEventListener('click', function () {
+    document.body.classList.toggle('dark');
+    const isDark = document.body.classList.contains('dark');
+    localStorage.setItem('darkMode', isDark ? 'on' : 'off');
+    this.textContent = isDark ? '☀' : '☽';
+});
+</script>
+
+<script>
+const compounds = [
+  {a:'Lavender',        b:'Chamomile',       name:'Calming Night Tea',    latin:'Infusio serena',        info:'Lavender eases anxiety while chamomile relaxes the gut and mind. Steep both for 10 minutes before bed.'},
+  {a:'Lavender',        b:'Peppermint',       name:'Headache Tincture',    latin:'Tinctura capitis',      info:'Lavender calms nerve tension; peppermint cools circulation. Applied to the temples.'},
+  {a:'Lavender',        b:'Lemon Balm',       name:'Anxiety Draught',      latin:'Potio anxietatis',      info:'Both act on the nervous system, producing a sustained calm without sedation.'},
+  {a:'Chamomile',       b:'Ginger',           name:'Digestive Cordial',    latin:'Cordiale digestivum',   info:'Chamomile soothes the gut lining; ginger stimulates digestive fire. A remedy for nausea and bloating.'},
+  {a:'Chamomile',       b:'Lemon Balm',       name:'Sleep Draught No. 2',  latin:'Potio soporis II',      info:'A milder alternative to valerian preparations. Suitable for children and the elderly.'},
+  {a:'Echinacea',       b:'Elderberry',       name:'Immune Syrup',         latin:'Syrupus immunitatis',   info:'Elderberry provides antiviral compounds; echinacea stimulates white blood cell production.'},
+  {a:'Echinacea',       b:'Ginger',           name:'Fever Compound',       latin:'Compositum febrifugum', info:'Echinacea fights infection; ginger promotes circulation and warming perspiration.'},
+  {a:'Ginger',          b:'Turmeric',         name:'Golden Milk',          latin:'Lac aureum',            info:'A warming Ayurvedic tonic. Anti-inflammatory, digestive, and circulatory.'},
+  {a:'Ginger',          b:'Peppermint',       name:'Nausea Relief Tea',    latin:'Infusio nauseatica',    info:'Ginger settles the stomach; peppermint reduces spasm.'},
+  {a:'Calendula',       b:"St. John's Wort",  name:'Wound Salve',          latin:'Unguentum vulnerarium', info:"Calendula is antiseptic; St. John's Wort soothes nerve pain at the wound site."},
+  {a:'Calendula',       b:'Lavender',         name:'Skin Repair Cream',    latin:'Cremor cutis',          info:'Calendula heals while lavender prevents infection and reduces redness.'},
+  {a:'Rosemary',        b:'Peppermint',       name:'Memory Oil',           latin:'Oleum memoriae',        info:'Both herbs stimulate cerebral circulation. Applied to the scalp to aid concentration.'},
+  {a:'Yarrow',          b:'Elderberry',       name:'Fever Breaking Tea',   latin:'Infusio febrifuga',     info:'Yarrow induces perspiration; elderberry supports immune response. Serve very hot.'},
+  {a:'Yarrow',          b:'Calendula',        name:'Wound Wash',           latin:'Lotio vulnerum',        info:'Yarrow stops bleeding; calendula prevents infection. A traditional field dressing.'},
+  {a:'Milk Thistle',    b:'Turmeric',         name:'Liver Tonic',          latin:'Tonica hepatis',        info:'Milk thistle regenerates liver cells; turmeric reduces inflammation.'},
+  {a:'Marshmallow Root',b:'Chamomile',        name:'Throat Syrup',         latin:'Syrupus faucium',       info:'Marshmallow coats the inflamed throat; chamomile reduces swelling. Taken warm with honey.'},
+  {a:'Lemon Balm',      b:'Lavender',         name:'Anxiety Blend',        latin:'Compositum anxietatis', info:'Both act on the same receptors, amplifying the calming effect.'},
+  {a:'Rosemary',        b:'Ginger',           name:'Circulation Tonic',    latin:'Tonica circulationis',  info:'Both warming herbs stimulate peripheral circulation. Used for cold extremities.'},
+];
+
+var slotA = null, slotB = null;
+var found = new Set();
+
+document.querySelectorAll('.herb-pill').forEach(function(pill) {
+  pill.addEventListener('dragstart', function(e) {
+    e.dataTransfer.setData('text/plain', pill.textContent.trim());
+    e.dataTransfer.effectAllowed = 'copy';
+  });
+});
+
+['slot-a','slot-b'].forEach(function(id) {
+  var box = document.getElementById(id);
+  box.addEventListener('dragover', function(e) {
+    e.preventDefault();
+    box.style.borderColor = '#6b4c1e';
+    box.style.background  = 'rgba(107,76,30,0.05)';
+  });
+  box.addEventListener('dragleave', function() {
+    box.style.borderColor = '#aaa';
+    box.style.background  = '';
+  });
+  box.addEventListener('drop', function(e) {
+    e.preventDefault();
+    var name = e.dataTransfer.getData('text/plain');
+    if (!name) return;
+    box.style.borderStyle  = 'solid';
+    box.style.borderColor  = '#333';
+    box.style.background   = '';
+    box.style.color        = '#333';
+    box.style.fontSize     = '13px';
+    box.textContent = name;
+    if (id === 'slot-a') slotA = name;
+    else                 slotB = name;
+    if (slotA && slotB) checkCompound();
+  });
+});
+
+function checkCompound() {
+  var match = null;
+  for (var i = 0; i < compounds.length; i++) {
+    var c = compounds[i];
+    if ((c.a===slotA && c.b===slotB) || (c.a===slotB && c.b===slotA)) { match=c; break; }
+  }
+  var r    = document.getElementById('slot-r');
+  var card = document.getElementById('compound-result');
+  if (match) {
+    r.textContent = match.name;
+    r.style.borderStyle = 'solid';
+    r.style.borderColor = '#6b4c1e';
+    r.style.color       = '#6b4c1e';
+    r.style.fontSize    = '11px';
+    document.getElementById('compound-name').textContent  = match.name;
+    document.getElementById('compound-latin').textContent = match.latin;
+    document.getElementById('compound-info').textContent  = match.info;
+    card.style.display = 'block';
+    var key = [slotA,slotB].sort().join('+');
+    if (!found.has(key)) {
+      found.add(key);
+      var list  = document.getElementById('disc-list');
+      var entry = document.createElement('div');
+      entry.className = 'disc-entry';
+      entry.innerHTML = '<span style="font-style:italic;color:#333;">'+match.name+'</span><span style="color:#999;font-size:10px;">'+slotA+' + '+slotB+'</span>';
+      list.appendChild(entry);
+    }
+  } else {
+    r.textContent       = 'No compound';
+    r.style.borderStyle = 'dashed';
+    r.style.borderColor = '#ccc';
+    r.style.color       = '#ccc';
+    r.style.fontSize    = '11px';
+    card.style.display  = 'none';
+  }
+}
+
+function clearSlots() {
+  slotA = null; slotB = null;
+  var a = document.getElementById('slot-a');
+  var b = document.getElementById('slot-b');
+  var r = document.getElementById('slot-r');
+  a.style.cssText = 'width:150px;height:120px;border:2px dashed #aaa;display:flex;align-items:center;justify-content:center;font-family:Georgia,serif;font-style:italic;font-size:11px;color:#aaa;';
+  a.textContent = 'Herb I';
+  b.style.cssText = 'width:150px;height:120px;border:2px dashed #aaa;display:flex;align-items:center;justify-content:center;font-family:Georgia,serif;font-style:italic;font-size:11px;color:#aaa;';
+  b.textContent = 'Herb II';
+  r.style.cssText = 'width:150px;height:120px;border:2px dashed #ccc;display:flex;align-items:center;justify-content:center;font-family:Georgia,serif;font-style:italic;font-size:11px;color:#aaa;';
+  r.textContent = 'Compound';
+  document.getElementById('compound-result').style.display = 'none';
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entry_Page</title>
+  <style>
+    body {
+      font-family: 'Georgia', monospace, sans-serif;
+      margin: 20px;
+      background-color: antiquewhite;
+      border: 2px solid black;
+      padding: 100px;
+    }
+
+    p {
+      color: #333;
+      font-size: 24px;
+      margin-bottom: 10px;
+      text-align: center;
+      border: 2px solid #333;
+      padding: 10px;
+    }
+
+    h1 {
+      font-size: 18px;
+      color: #666;
+    }
+
+    a {
+      text-decoration: none;
+      color: #333;
+      font-size: 18px;
+    }
+
+    a:hover p {
+      text-decoration: underline dashed;
+      color: #333;
+    }
+
+    img {
+      display: block;
+      margin: 20px auto;
+    }
+
+    .rotating-badge {
+      position: fixed;
+      top: 20%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 100;
+    }
+
+    .rotating-badge svg {
+      animation: spin 12s linear infinite;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
+    h2 {
+      font-family: 'Georgia', serif;
+      font-style: italic;
+      font-size: 14px;
+      letter-spacing: 2px;
+      color: #000;
+      text-align: center;
+    }
+    .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.logo-img {
+    width: 175px;
+    height: auto;
+    margin-top: 10px;
+}
+h5 {
+    font-size: 10px;
+    color: #817e7e;
+    text-align: left;
+    margin-top: 20px;
+    letter-spacing: 1px;
+    line-height: 1px;
+}
+.logo-img {
+    width: 200px;
+    height: auto;
+    margin-top: 10px;
+}
+body {
+  animation: fadeIn 0.6s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.nav-bar {
+    position: absolute;
+    top: 20px;
+    left: 65px;
+    right: 65px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+body.dark {
+    background-color: #1a1410;
+    border-color: #5a4a35;
+    color: #d4c4a8;
+}
+
+body.dark p {
+    color: #d4c4a8;
+    border-color: #5a4a35;
+}
+
+body.dark a { color: #d4c4a8; }
+
+body.dark .circle-text { fill: #d4c4a8; }
+
+body.dark .progress-fill { background: #c4a882; }
+body.dark .progress-fill::after { background: #c4a882; }
+body.dark .progress-label { color: #c4a882; }
+
+body.dark hr { border-color: #5a4a35; }
+body.dark h2, body.dark h4, body.dark h5, body.dark h6 { color: #d4c4a8; }
+
+.dark-toggle {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 36px;
+    height: 36px;
+    border: 1px solid #333;
+    background: antiquewhite;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: background 0.3s, border-color 0.3s;
+}
+
+body.dark .dark-toggle {
+    background: #1a1410;
+    border-color: #5a4a35;
+}
+  </style>
+</head>
+<body>
+  <br>
+  <img src="LogoImg.png" alt="Apothecary Logo" class="logo-img">
+<br><br><br>
+  <p>Welcome to the Apothecary</p>
+  <a href="Landing.html"><p>Enter</p></a>
+  <br><br><br>
+  <h2>· A botanist guide behind the counter ·</h2>
+  <button class="dark-toggle" id="darkToggle" title="Toggle dark mode">☽</button>
+
+  <script>
+  document.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (!href || href.startsWith('#') || href.startsWith('http')) return;
+
+      e.preventDefault();
+      document.body.style.transition = 'opacity 0.4s ease';
+      document.body.style.opacity = '0';
+
+      setTimeout(() => {
+        window.location.href = href;
+      }, 400);
+    });
+  });
+
+const toggle = document.getElementById('darkToggle');
+if (localStorage.getItem('darkMode') === 'on') {
+    document.body.classList.add('dark');
+    toggle.textContent = '☀';
+}
+toggle.addEventListener('click', function () {
+    document.body.classList.toggle('dark');
+    const isDark = document.body.classList.contains('dark');
+    localStorage.setItem('darkMode', isDark ? 'on' : 'off');
+    this.textContent = isDark ? '☀' : '☽';
+});
+</script>
+
+</body>
+</html>
